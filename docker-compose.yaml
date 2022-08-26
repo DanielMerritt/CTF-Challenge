@@ -3,12 +3,12 @@ version: "3.7"
 services:
 
   app:
-    image: ctfchallenge1
+    build: ctf_challenge
     ports:
       - "127.0.0.1:8000:8000"
 
   mssql:
     image: mcr.microsoft.com/mssql/server
     environment:
-      SA_PASSWORD: changeme
+      SA_PASSWORD: Jaxn4*ZLCG_P*.@4wKrC
       ACCEPT_EULA: Y

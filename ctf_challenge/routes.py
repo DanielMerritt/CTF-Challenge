@@ -27,13 +27,16 @@ def login():
         password = form.password.data
 
         try:
-            connection = pyodbc.connect(f"DRIVER={{ODBC Driver 18 for SQL Server}};TrustServerCertificate=yes;UID={username};PWD={password};SERVER=mssql;", timeout=7)
+            connection = pyodbc.connect(
+                f"DRIVER={{ODBC Driver 18 for SQL Server}};TrustServerCertificate=yes;UID={username};PWD={password};SERVER=mssql;",
+                timeout=7,
+            )
             connection.close()
             session["username"] = "admin"
             session.modified = True
             flash("Logged in!", "success")
             return redirect(url_for("flag"))
-            
+
         except Exception as e:
             flash(e, "danger")
             return render_template("login.html", form=form)
